@@ -1,0 +1,8 @@
+<resources>
+    <string name="hint_name"><font size="12" color="grey" align="center">Enter user Here </font></string>
+    <string name="hint_username"><font size="12" color="grey" align="center">Enter Username here *</font></string>
+    <string name="hint_email"><font size="12" color="grey" align="center">Enter Email ID Here *</font></string>
+    <string name="hint_password"><font size="12" color="grey" align="center">Enter Password Here *</font></string>
+    <string name="hint_confirm_password"><font size="12" color="grey" align="center">Enter Password Here *</font></string>
+    <string name="app_name"><font size="25" color="grey" align="center">Registration</font></string>
+</resources>
