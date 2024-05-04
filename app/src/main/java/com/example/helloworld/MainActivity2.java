@@ -1,5 +1,6 @@
 package com.example.helloworld;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,7 @@ public class MainActivity2 extends AppCompatActivity {
         clearButton.setBackgroundColor(getColor(R.color.white));
 
 
+        
 
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +47,9 @@ public class MainActivity2 extends AppCompatActivity {
                 System.out.println("Email "+Email+"Username"+username+"Password"+Password+"confirm password"+confirmPassword);
 
                 if (ConfirmPassword.isEmpty() && Password.isEmpty() && Email.isEmpty() && Username.isEmpty()) {
+
+
+
                     email.requestFocus();
                     email.setError("FIELD CANNOT BE EMPTY");
                     username.setError("FIELD CANNOT BE EMPTY");
@@ -56,15 +61,22 @@ public class MainActivity2 extends AppCompatActivity {
                     confirmPassword.setBackgroundColor(getColor(R.color.alert));
                     password.setBackgroundColor(getColor(R.color.alert));
 
+                    email.setHintTextColor(getColor(R.color.white));
+                    username.setHintTextColor(getColor(R.color.white));
+                    confirmPassword.setHintTextColor(getColor(R.color.white));
+                    password.setHintTextColor(getColor(R.color.white));
+
                     Toast.makeText(MainActivity2.this, "Enter All the Required Field", Toast.LENGTH_LONG).show();
                 } else if (!Name.matches("[a-zA-Z ]+") ) {
                     name.requestFocus();
                     name.setError("ENTER ONLY ALPHABETICAL CHARACTER");
                     name.setBackgroundColor(getColor(R.color.alert));
+                    name.setHintTextColor(getColor(R.color.white));
                 } else if (!Username.matches("[a-zA-Z ]+")) {
                     username.requestFocus();
                     username.setError("ENTER ONLY ALPHABETICAL CHARACTER");
                     username.setBackgroundColor(getColor(R.color.alert));
+
                 } else if (!Email.matches(Expn)){
                     email.requestFocus();
                     email.setError("Invaild Email");
@@ -81,9 +93,15 @@ public class MainActivity2 extends AppCompatActivity {
                     confirmPassword.requestFocus();
                     confirmPassword.setError("Password Mismatch");
                 } else {
+                    Intent intent=new Intent(MainActivity2.this,MainActivity.class);
+                    Bundle data=new Bundle();
+                    data.putString("name",Name);
+                    data.putString("username",Username);
+                    data.putString("email",Email);
+                    intent.putExtras(data);
+                    startActivity(intent);
                     Toast.makeText(MainActivity2.this, "Validation Successful", Toast.LENGTH_LONG).show();
                 }
-
 
             }
 
